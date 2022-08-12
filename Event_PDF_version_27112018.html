@@ -1,0 +1,374 @@
+<!-- =================================================================================================================== -->
+<!-- Page Name..: Event Report                                                                                           -->
+<!-- Application: LongView Plus                                                                                          -->
+<!-- Object.....: LongView/NPT                                                                                           -->
+<!-- Purpose....: Event report Template on functional "Workshop LongView DEMO Findings JR 30-10-18 LongView V2 (1).xlsx" -->
+<!--              combination with document template field "Service Delivery".                                           -->
+<!-- Date.......: 11/02/2018                                                                                             -->
+<!-- Programmer.: LongView Plus delevopment team (Nextwells)                                                             -->
+<!-- =================================================================================================================== -->
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+
+    <title>Event Report {!name#text} </title>
+
+    <style>
+      td 
+      {
+        border: 1px solid black;
+        font-size: 10px;
+      }
+      h5
+      {
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        font-size: 10px;  
+      }
+    </style>
+  </head>
+
+  <br>
+
+  <body>
+    <table style="border: 0px solid black;" width="100%" bgcolor="#7BD2F6"> 
+      <tr> 
+        <td width="60%" style="border: 0px solid black;"><img src="http://castillolk.com.ve/ray-oil-gas.png" width=20% ></td>
+        <td  style="border: 0px solid black;">
+          <div align=center> <b>Ray International Oil & gas<br>Daily Operational Report <br>
+            <font color=red>{!Event_Number}</font></b> 
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <br>
+
+    <!-- ------------------------------------------- -->
+    <!--        EVENT INFORMATION SECTION            -->
+    <!-- ------------------------------------------- -->
+    <div style="background:#d5d5d5;" align=center>  
+      <table  style="border: 0px solid black;"width = "100%">
+        <tr>
+          <td align=center> 
+            <h5>Event information</h5>
+            <br> 
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <table  style="border: 0px solid black;"width = "100%">
+      <tr>
+        <td width="50%"  style="border: 0px solid black;">
+          <table width="100%">
+            <tr>
+              <td width="30%">Event Number: </td>
+              <td>{!Event_Number}</td>
+            </tr>
+          </table>
+        </td>
+
+        <td width="50%"  style="border: 0px solid black;">
+          <table width="100%"> 
+            <tr>
+              <td width="30%" >Event Title: </td> 
+              <td>{!Event_title}</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td width="50%"  style="border: 0px solid black;">
+          <table width="100%">
+            <tr>
+              <td width="30%">Service Line: </td>
+              <td>{!Service_Line_Event}</td>
+            </tr>
+          </table>
+        </td>
+
+        <td width="50%"  style="border: 0px solid black;">
+          <table width="100%"> 
+            <tr>
+              <td width="30%" >Service Line Type: </td> 
+              <td>{!Service_Line_Type_Event}</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td width="50%"  style="border: 0px solid black;">
+          <table width="100%">
+            <tr>
+              <td width="30%">Job Number: </td>
+              <td>{!Job_Number_related}</td>
+            </tr>
+          </table>
+        </td>
+
+        <td width="50%"  style="border: 0px solid black;">
+          <table width="100%"> 
+            <tr>
+              <td width="30%" >Job's Service Line: </td> 
+              <td>{!Service_Line_Job}</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td width="50%"  style="border: 0px solid black;">
+          <table width="100%">
+            <tr>
+              <td width="30%">Objective: </td>
+              <td>{!Objective}</td>
+            </tr>
+          </table>
+        </td>
+
+        <td width="50%"  style="border: 0px solid black;">
+          <table width="100%"> 
+            <tr>
+              <td width="30%" >Est. Duration (Days): </td> 
+              <td>{!Est__Duration__Days_}</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td width="50%"  style="border: 0px solid black;">
+          <table width="100%">
+            <tr>
+              <td width="30%">Start Date: </td>
+              <td>{!Event_start_date}</td>
+            </tr>
+          </table>
+        </td>
+
+        <td width="50%"  style="border: 0px solid black;">
+          <table width="100%"> 
+            <tr>
+              <td width="30%" >Closing Date: </td> 
+              <td>{!End_date}</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td width="50%"  style="border: 0px solid black;">
+          <table width="100%">
+            <tr>
+              <td width="30%">Spud Date: </td>
+              <td>{!Original_spud_date}</td>
+            </tr>
+          </table>
+        </td>
+
+        <td width="50%"  style="border: 0px solid black;">
+          <table width="100%"> 
+            <tr>
+              <td width="30%" >Location: </td> 
+              <td>{!Location_job}</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td width="50%"  style="border: 0px solid black;">
+          <table width="100%">
+            <tr>
+              <td width="30%">Project Title: </td>
+              <td>{!Project_title}</td>
+            </tr>
+          </table>
+        </td>
+
+        <td width="50%"  style="border: 0px solid black;">
+          <table width="100%"> 
+            <tr>
+              <td width="30%" >Event Duration (hrs): </td> 
+              <td>{!Event_Total_Time}</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td width="50%"  style="border: 0px solid black;">
+          <table width="100%">
+            <tr>
+              <td width="30%">Customer Name: </td>
+              <td>{!Customer_name}</td>
+            </tr>
+          </table>
+        </td>
+
+        <td width="50%"  style="border: 0px solid black;">
+          <table width="100%"> 
+            <tr>
+              <td width="30%" >Customer Contact: </td> 
+              <td>{!Customer_Contact}</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td width="50%"  style="border: 0px solid black;">
+          <table width="100%"> 
+            <tr>
+              <td width="30%" >Company Supervisor: </td> 
+              <td>{!Company_Supervisor_expression}</td>
+            </tr>
+          </table>
+        </td>
+
+        <td width="50%"  style="border: 0px solid black;">
+          <table width="100%">
+            <tr>
+              <td width="30%">Days to Release: </td>
+              <td>{!Days_to_Release}</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td width="50%"  style="border: 0px solid black;">
+          <table width="100%"> 
+            <tr>
+              <td width="30%" >Days on Location: </td> 
+              <td>{!Days_on_Location}</td>
+            </tr>
+          </table>
+        </td>
+
+        <td width="50%"  style="border: 0px solid black;">
+          <table width="100%">
+            <tr>
+              <td width="30%">Well: </td>
+              <td>{!Well}</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+
+      <tr>
+        <td width="50%"  style="border: 0px solid black;">
+          <table width="100%"> 
+            <tr>
+              <td width="30%" >Total NPT(hrs): </td> 
+              <td>{!NPT_Total}</td>
+            </tr>
+          </table>
+        </td>
+
+        <td width="50%"  style="border: 0px solid black;">
+          <table width="100%">
+            <tr>
+              <td width="30%">Total % NPT: </td>
+              <td>{!percentNPT}</td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+
+    <br>
+
+    <!-- ---------------------------------------------- -->
+    <!--         EVENT's NPT INFORMATION SECTION        -->
+    <!-- ---------------------------------------------- -->
+    <div style="background:#d5d5d5;" align=center>  
+      <table  style="border: 0px solid black;"width = "100%">
+        <tr>
+          <td align=center> 
+            <h5>Event's NPT Information - Event: {!Event_Number} </h5><br> 
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Iterates through all Event related NPTs. -->
+    {!#LOOP_BEGIN.R2139390}
+      <table style="border: 0px solid black;"width = "100%">
+        <tr>
+          <td width="15%"  style="border: 0px solid black;">
+            <table width="100%">
+              <tr>
+                <td width="30%">NPT:</td><td width="70%">{!NPT_Report_READ_ONLY}</td>
+              </tr>
+            </table>
+          </td>
+
+          <td width="15%"  style="border: 0px solid black;">
+            <table width="100%">
+              <tr>
+                <td width="30%">Type:</td><td width="70%">{!Type_READ_ONLY}</td>
+              </tr>
+            </table>
+          </td>
+
+          <td width="35%"  style="border: 0px solid black;">
+            <table width="100%">
+              <tr>
+                <td width="30%">Desc:</td><td width="70%">{!Project}</td>
+              </tr>
+            </table>
+          </td>
+
+          <td width="35%"  style="border: 0px solid black;">
+            <table width="100%"> 
+              <tr>
+                <td width="50%" >Gross:</td><td width="50%"></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <td width="15%"  style="border: 0px solid black;">
+            <table width="100%">
+              <tr>
+                <td width="40%">Net T.:</td><td width="60%">{!Net_time}</td>
+              </tr>
+            </table>
+          </td>
+
+          <td width="15%"  style="border: 0px solid black;">
+            <table width="100%">
+              <tr>
+                <td width="30%">%NPT:</td><td width="70%">{!NPT_Event_Total_Hours}</td>
+              </tr>
+            </table>
+          </td>
+
+          <td width="35%"  style="border: 0px solid black;">
+            <table width="100%">
+              <tr>
+                <td width="30%">Start Date:</td><td width="70%">{!Event_Start_Date_rf}</td>
+              </tr>
+            </table>
+          </td>
+
+          <td width="35%"  style="border: 0px solid black;">
+            <table width="100%"> 
+              <tr>
+                <td width="30%" >End Date:</td><td width="70%">{!Event_End_Date_rf}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+
+      <br>
+    {!#LOOP_END.R2139390}
+  </body>
+</html>
