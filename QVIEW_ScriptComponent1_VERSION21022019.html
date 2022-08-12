@@ -1,0 +1,2025 @@
+<!-- == QVIEW - SCRIPT COMPONENT 1 ========================================================= -->
+<!-- Title......: LongView Plus QVIEW Dashboard page - Script Component 1                    -->
+<!-- Description: Manage charts 1 to 20.                                                     -->
+<!-- Date.......: 20/09/2018                                                                 -->
+<!-- Author.....: Nextwells development team                                                 -->
+<!--                                                                                         -->
+<!-- Note.......: Chart numbers follows the same numbering as in functional                  -->
+<!--              document "QView Analysis Charts Ver 25-09-2018  4.46PM.docx" (09/25/2018). -->
+<!-- ======================================================================================= -->
+
+
+<!-- ----------------------------------------------------------- -->
+<!--                   CSS STYLES SECTION                        -->
+<!-- ----------------------------------------------------------- -->
+
+<style type="text/css">
+    .div1 {
+        width: 200px;
+        height: 100px;
+        border: 0.5px solid #f2f2f2;
+        border-radius: 25px;
+        box-sizing: border-box;
+        margin-left: 1%;
+        margin-top: 1%;
+        background-color: #b3dbff;
+        // #99cfff;   // #F0F8FF;
+        // background-image: url('{!#HOSTED_FILE.wB3cHlM1QIyi4FDP8wgn6w}');
+        text-align: center;
+    }
+
+    .demoMouseClick {
+        width: 200px;
+        height: 100px;
+        border: 0.5px solid #f2f2f2;
+        box-sizing: border-box;
+        margin-left: 1%;
+        margin-top: 1%;
+        background-color: #e6eeff;
+        text-align: center;
+    }
+
+    .rounded-circle2 {
+        border-radius: 50%!important;
+        border: 0.5px solid #80bfff;
+        height: 50px;
+        width: 50px;
+        background-color: #80bfff;
+        margin-left: 50%;
+        margin-top: 30%;
+    }
+    
+    .rounded-circle-cia {
+        border-radius: 50%!important;
+        border: 0.5px solid #3dd1e8;
+        height: 50px;
+        width: 50px;
+        background-color: #3dd1e8;
+        margin-left: 50%;
+        margin-top: 30%;
+    }
+    
+    .rounded-circle-green {
+        border-radius: 50%!important;
+        border: 0.5px solid #15d3b2;
+        height: 50px;
+        width: 50px;
+        background-color: #15d3b2;
+        margin-left: 50%;
+        margin-top: 30%;
+    }
+    
+    .rounded-circle-black {
+        border-radius: 50%!important;
+        border: 0.5px solid #000000;
+        height: 50px;
+        width: 50px;
+        background-color: #000000;
+        margin-left: 50%;
+        margin-top: 30%;
+    }
+    
+    .rounded-circle-Red {
+        border-radius: 50%!important;
+        border: 0.5px solid #FF0000;
+        height: 50px;
+        width: 50px;
+        background-color: #FF0000;
+        margin-left: 50%;
+        margin-top: 30%;
+    }
+    
+    .rounded-circle-CadetBlue {
+        border-radius: 50%!important;
+        border: 0.5px solid #5F9EA0;
+        height: 50px;
+        width: 50px;
+        background-color: #5F9EA0;
+        margin-left: 50%;
+        margin-top: 30%;
+    }
+    
+    //centrar icono
+    .icon-center {
+        color: white;
+        top: 50%!important;
+        left: 50%!important;
+        position: absolute!important;
+        transform: translate(-50%, -50%);
+    }
+    
+  
+    @media screen and (max-width:800px) {
+        .rounded-circle {
+            margin-left: 10%;
+            margin-top: 15%;
+        }
+        .rounded-circle-cia {
+            margin-left: 10%;
+            margin-top: 15%;
+        }
+        .rounded-circle-green {
+            margin-left: 10%;
+            margin-top: 15%;
+        }
+        .rounded-circle-black {
+            margin-left: 10%;
+            margin-top: 15%;
+        }
+        .rounded-circle-CadetBlue {
+            margin-left: 10%;
+            margin-top: 15%;
+        }
+        .rounded-circle-Red {
+            margin-left: 10%;
+            margin-top: 15%;
+        }
+        .div1 {
+            width: 100%;
+        }
+    }
+</style>
+
+
+
+<!-- -------------------------------------------------- -->
+<!--         CHARTS 1 TO 20 - BOXES SECTION             -->
+<!-- -------------------------------------------------- -->
+<div class="content">
+    <div class="container-fluid">
+
+        <!-- ---------- CUSTOMER FEEDBACK BOX --------- -->
+        <div class="col-sm-3 div1">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4">
+                    <div class="rounded-circle2">
+                        <i style="font-size:15px;color:white;top:30%;" class="glyphicon glyphicon-inbox"></i>
+                    </div>
+                </div>
+                <div class="col-xs-8 col-sm-8">
+                    <span style="font-size: 11pt">Cust Feedback</span>
+                    <br><br><br>
+                    <div class="CustomerFeedBk" style="font-size: 10pt"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ---------- CALIB EXPIRED BOX --------- -->
+        <div class="col-sm-3 div1">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4">
+                    <div class="rounded-circle-CadetBlue">
+                        <i style="font-size:15px;color:white;top:30%;" class="glyphicon glyphicon-user"></i>
+                    </div>
+                </div>
+                <div class="col-xs-8 col-sm-8">
+                    <span style="font-size: 11pt">Calib. Expired</span>
+                    <br><br><br>
+                    <div class="calibExpCntr" style="font-size: 10pt"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ---------- CALIB < 90 DAYS BOX --------- -->
+        <div class="col-sm-3 div1">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4">
+                    <div class="rounded-circle-CadetBlue">
+                        <i style="font-size:15px;color:white;top:30%;" class="glyphicon glyphicon-repeat"></i>
+                    </div>
+                </div>
+                <div class="col-xs-8 col-sm-8">
+                    <span style="font-size: 11pt">Calib < 90 Days</span>
+                    <br><br><br>
+                    <div class="calibLess90DCntr" style="font-size: 10pt"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ---------- CALIB > 90 DAYS BOX --------- -->
+        <div class="col-sm-3 div1">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4">
+                    <div class="rounded-circle-CadetBlue">
+                        <i style="font-size:15px;color:white;top:30%;" class="glyphicon glyphicon-inbox"></i>
+                    </div>
+                </div>
+                <div class="col-xs-8 col-sm-8">
+                    <span style="font-size: 11pt">Calib > 90 Days</span>
+                    <br><br><br>
+                    <div class="calibGretr90DCntr" style="font-size: 10pt"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ---------- LIVE CALL OUTS BOX --------- -->
+        <div class="col-sm-3 div1">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4">
+                    <div class="rounded-circle-CadetBlue">
+                        <i style="font-size:15px;color:white;top:30%;" class="glyphicon glyphicon-inbox"></i>
+                    </div>
+                </div>
+                <div class="col-xs-8 col-sm-8">
+                    <span style="font-size: 11pt">Live Call Outs</span>
+                    <br><br><br>
+                    <div class="liveCallOutCntr" style="font-size: 10pt"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ---------- LIVE JOBS BOX --------- -->
+        <div class="col-sm-3 div1">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4">
+                    <div class="rounded-circle-CadetBlue">
+                        <i style="font-size:15px;color:white;top:30%;" class="glyphicon glyphicon-inbox"></i>
+                    </div>
+                </div>
+                <div class="col-xs-8 col-sm-8">
+                    <span style="font-size: 11pt">Live Jobs</span>
+                    <br><br><br>
+                    <div class="liveJobCntr" style="font-size: 10pt"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ---------- CERTIF EXPIR BOX --------- -->
+        <div class="col-sm-3 div1">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4">
+                    <div class="rounded-circle2">
+                        <i style="font-size:15px;color:white;top:30%;" class="glyphicon glyphicon-user"></i>
+                    </div>
+                </div>
+                <div class="col-xs-8 col-sm-8">
+                    <span style="font-size: 11pt">Cert. Expired</span>
+                    <br><br><br>
+                    <div class="certExpCntr" style="font-size: 10pt"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ---------- CERTIF EXP < 90 DAYS BOX --------- -->
+        <div class="col-sm-3 div1">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4">
+                    <div class="rounded-circle2">
+                        <i style="font-size:15px;color:white;top:30%;" class="glyphicon glyphicon-repeat"></i>
+                    </div>
+                </div>
+                <div class="col-xs-8 col-sm-8">
+                    <span style="font-size: 11pt">Cert.Exp < 90 Days</span>
+                    <br><br><br>
+                    <div class="certLess90DCntr" style="font-size: 10pt"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                </div>
+            </div>
+        </div>
+
+
+        <!-- ---------- CERTIF EXP > 90 DAYS BOX --------- -->
+        <div class="col-sm-3 div1">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4">
+                    <div class="rounded-circle2">
+                        <i style="font-size:15px;color:white;top:30%;" class="glyphicon glyphicon-inbox"></i>
+                    </div>
+                </div>
+                <div class="col-xs-8 col-sm-8">
+                    <span style="font-size: 11pt">Cert.Exp > 90 Days</span>
+                    <br><br><br>
+                    <div class="certGretr90DCntr" style="font-size: 10pt"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                </div>
+            </div>
+        </div>
+
+        <!-- ---------- TOTAL MOC BOX --------- -->
+        <div class="col-sm-3 div1">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4">
+                    <div class="rounded-circle2">
+                        <i style="font-size:15px;color:white;top:30%;" class="glyphicon glyphicon-inbox"></i>
+                    </div>
+                </div>
+                <div class="col-xs-8 col-sm-8">
+                    <span style="font-size: 11pt">Total MOC</span>
+                    <br><br><br>
+                    <div class="TotMOCCntr" style="font-size: 10pt"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                </div>
+            </div>
+        </div>
+
+        <!-- ---------- TOTAL RISK BOX --------- -->
+        <div class="col-sm-3 div1">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4">
+                    <div class="rounded-circle2">
+                        <i style="font-size:15px;color:white;top:30%;" class="glyphicon glyphicon-inbox"></i>
+                    </div>
+                </div>
+                <div class="col-xs-8 col-sm-8">
+                    <span style="font-size: 11pt">Total RISK</span>
+                    <br><br><br>
+                    <div class="TotRISKCntr" style="font-size: 10pt"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                </div>
+            </div>
+        </div>
+
+        <!-- ---------- LIVE CAR BOX --------- -->
+        <div class="col-sm-3 div1">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4">
+                    <div class="rounded-circle2">
+                        <i style="font-size:15px;color:white;top:30%;" class="glyphicon glyphicon-inbox"></i>
+                    </div>
+                </div>
+                <div class="col-xs-8 col-sm-8">
+                    <span style="font-size: 11pt">Live CAR</span>
+                    <br><br><br>
+                    <div class="LiveCARCntr" style="font-size: 10pt"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                </div>
+            </div>
+        </div>
+
+        <!-- ---------- LIVE PAR BOX --------- -->
+        <div class="col-sm-3 div1">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4">
+                    <div class="rounded-circle2">
+                        <i style="font-size:15px;color:white;top:30%;" class="glyphicon glyphicon-inbox"></i>
+                    </div>
+                </div>
+                <div class="col-xs-8 col-sm-8">
+                    <span style="font-size: 11pt">Live PAR</span>
+                    <br><br><br>
+                    <div class="LivePARCntr" style="font-size: 10pt"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                </div>
+            </div>
+        </div>
+
+        <!-- ---------- LIVE AUDIT BOX --------- -->
+        <div class="col-sm-3 div1">
+            <div class="row">
+                <div class="col-xs-4 col-sm-4">
+                    <div class="rounded-circle2">
+                        <i style="font-size:15px;color:white;top:30%;" class="glyphicon glyphicon-inbox"></i>
+                    </div>
+                </div>
+                <div class="col-xs-8 col-sm-8">
+                    <span style="font-size: 11pt">Live AUDIT</span>
+                    <br><br><br>
+                    <div class="LiveAUDCntr" style="font-size: 10pt"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+<hr style="color: #4bb6c2; background-color: #4bb6c2; height: 3px;" />
+<br>
+
+
+<!-- ----------------------------------------------------------- -->
+<!--              CHARTS 1 TO 20 - CHARTS SECTION                -->
+<!-- ----------------------------------------------------------- -->
+<!--
+<div class="row">
+    <div class="col-sm-6">
+        <div id="chart1-json1"></div>
+    </div>
+
+    <div class="col-sm-6">
+        <div id="chart234-json1"></div>
+    </div>
+</div>
+
+<br>
+<hr style="color: #4bb6c2; background-color: #4bb6c2; height: 3px;" />
+<br>
+-->
+
+<div class="row">
+    <div class="col-sm-6">
+        <div id="chart8-json1"></div>
+    </div>
+
+    <div class="col-sm-6">
+        <div id="chart9-json1"></div>
+    </div>
+</div>
+
+<br>
+<hr style="color: #4bb6c2; background-color: #4bb6c2; height: 3px;" />
+<br>
+
+<div class="row">
+	<div class="col-sm-6">
+        <div id="chart15-json1"></div>
+    </div>
+
+    <div class="col-sm-6">
+        <div id="chart16-json1"></div>
+    </div>
+</div>
+
+<br>
+<hr style="color: #4bb6c2; background-color: #4bb6c2; height: 3px;" />
+<br>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div id="chart19-1-json1" onclick="chart19_1_click_manager()"></div>
+    </div>
+
+    <div class="col-sm-6">
+        <div id="chart19-2-json1" onclick="chart19_2_click_manager()"></div>
+    </div>
+</div>
+
+<br>
+<hr style="color: #4bb6c2; background-color: #4bb6c2; height: 3px;" />
+<br>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div id="chart19-3-json1" onclick="chart19_3_click_manager()"></div>
+    </div>
+
+    <div class="col-sm-6">
+        <div id="chart20-json1" onclick="chart20_click_manager()"></div>
+    </div>
+</div>
+
+<br>
+<hr style="color: #4bb6c2; background-color: #4bb6c2; height: 3px;" />
+<br>
+
+<div class="row">
+    <div class="col-sm-6">
+        <!-- Developed by: Gian Franco -->
+        <div id="chartIncidentReportByServiceLine"></div>
+    </div>
+
+    <div class="col-sm-6">
+    </div>
+</div>
+
+<br>
+<hr style="color: #4bb6c2; background-color: #4bb6c2; height: 3px;" />
+<br>
+
+<!-- ----------------------------------------------------------- -->
+<!--             CHARTS 1 TO 20 SCRIPTS SECTION                  -->
+<!-- ----------------------------------------------------------- -->
+<script>
+    var json1Stream	= [];    // Batch Job "CollectDataForQVIEW1"'s JSON stream.
+
+	var calExpCnt 	= 0;
+	var calL90Cnt	= 0;
+	var calG90Cnt	= 0;
+
+	var cerExpCnt 	= 0;
+	var cerL90Cnt	= 0;
+	var cerG90Cnt	= 0;
+
+	var cstExpPtc	= 0;
+
+    var liveClCnt   = 0;
+    var liveJbCnt   = 0;
+
+    var totMOCnt    = 0;
+    var totRskCt    = 0;
+    var liveCARCt   = 0;
+    var livePARCt   = 0;
+    var clsdAUDCt   = 0;
+
+    var activeChart19_1 = [0, 0, 0];  // 1 ---> indicates which one is active at a time (Week, Month, Year).
+    var activeChart19_2 = [0, 0, 0];  // 1 ---> indicates which one is active at a time (Week, Month, Year).
+    var activeChart19_3 = [0, 0, 0];  // 1 ---> indicates which one is active at a time (Week, Month, Year).
+    var activeChart20   = [0, 0, 0];  // 1 ---> indicates which one is active at a time (Week, Month, Year).
+
+
+    /* -------------------------------------------------- *
+     *                   JSON1, Chart 1.                  *
+     * -------------------------------------------------- */
+    function chart1_function() {
+    	var exdExpSeries = [12, 3, 18, 4, 5, 3];    // Exceeded Expectations values.
+    	var metExpSeries = [2, 0, 3, 1, 1, 0];      // Met Expectations values.
+    	var msdExpSeries = [1, 2, 1, 0, 3, 1];      // Missed Expectation values.
+
+    	var series 		= [{
+        						name: "Exceeded Expectations",
+        						data: exdExpSeries,
+        						color: "#1E90FF",
+        						markers: {
+            								type: "square"
+        								}
+    						}, {
+        						name: "Met Expectations",
+        						data: metExpSeries,
+        						color: "#2E8B57"
+    						}, {
+        						name: "Missed Expectations",
+        						data: msdExpSeries,
+        						color: "#e60000"
+    						}];
+
+
+		cstExpPtc = 85.4;
+
+        $("#chart1-json1").kendoChart({
+            title: {
+                text: "Customer Feedback Summary"
+            },
+            legend: {
+                position: "bottom"
+            },
+            seriesDefaults: {
+                type: "bar",
+                stack: true
+            },
+            series: series,
+            valueAxis: {
+                line: {
+                    visible: false
+                }
+            },
+            categoryAxis: {
+                categories: ["PS37-01", "WS01-02", "WLO02-02", "WS01-03", "WLS02-03", "WPS08-05"],
+                majorGridLines: {
+                    visible: false
+                }
+            },
+            tooltip: {
+                visible: true,
+                format: "{0}"
+            }
+        });
+    }
+
+
+    /* -------------------------------------------------- *
+     *            JSON1, Chart & Boxes 2, 3, 4.           *
+     * -------------------------------------------------- */
+    function chart234_function() {
+        var maxvalue = 0;
+        var alto     = 300;
+        var ancho    = 500;
+
+        var label  = [];
+        var data   = [];
+        var offset = 6;
+        var axisy  = json1Stream.data.json1Chart234.y
+        var axisx  = json1Stream.data.json1Chart234.x
+
+
+        for (var i = 0; i < 3; i++) {
+            var pointery = (i + offset) % axisy.length;
+
+            label[i] = axisy[pointery];
+        }
+
+        for (var j = 0; j < 3; j++) {
+            var pointerx = (j + offset) % axisx.length;
+
+            data[j] = axisx[pointerx];
+        }
+
+		calExpCnt = parseInt(axisy[6]);
+		calL90Cnt = parseInt(axisy[7]);
+		calG90Cnt = parseInt(axisy[8]);
+
+        console.log("JSON1 - Charts 2, 3 y 4 ====> Contenido de label: " + label);
+        console.log("JSON1 - Charts 2, 3 y 4 ====> Contenido de data: " + data);
+
+        maxvalue = Math.max(...label);
+
+        $("#chart234-json1").kendoChart({
+            chartArea: {
+                width: ancho,
+                height: alto
+            },
+            title: {
+                text: "Measurement Device's Calibration"
+            },
+            legend: {
+                visible: false
+            },
+            seriesDefaults: {
+                type: "bar"
+            },
+            series: [{
+                name: "MDE's Calibrations",
+                data: label,
+                color: "#5F9EA0"
+            }],
+            valueAxis: {
+                max: maxvalue,
+                line: {
+                    visible: true
+                },
+                minorGridLines: {
+                    visible: false
+                },
+                labels: {
+                    format: "{0:n0}",
+                    rotation: "auto"
+                },
+                majorUnit: 1
+            },
+            categoryAxis: {
+                categories: data,
+                majorGridLines: {
+                    visible: false
+                }
+            },
+            tooltip: {
+                visible: true,
+                template: "#= series.name #: #= value #"
+            }
+        });
+    }
+
+
+    /* -------------------------------------------------- *
+     *               JSON1, Boxes 5, 6, 7.                *
+     * -------------------------------------------------- */
+    function chart567_function() {
+        var axisy  = json1Stream.data.json1Chart567.y
+        var axisx  = json1Stream.data.json1Chart567.x
+
+
+		cerExpCnt = parseInt(axisy[0]);
+		cerL90Cnt = parseInt(axisy[1]);
+		cerG90Cnt = parseInt(axisy[2]);
+    }
+
+
+    /* -------------------------------------------------- *
+     *                  JSON1, Chart 8                    *
+     * -------------------------------------------------- */
+    function chart8_function() {
+        var label  = [];
+        var data   = [];
+        var axisy  = json1Stream.data.json1Chart8.y
+        var axisx  = json1Stream.data.json1Chart8.x
+
+
+        for (var i = 0; i < 3; i++) {
+            label[i] = axisy[i];
+        }
+
+        for (var j = 0; j < 3; j++) {
+            data[j] = axisx[j];
+        }
+
+		liveClCnt = axisy[2];
+
+        console.log("JSON1 Chart 8 ====> Contenido de liveClCnt: " + liveClCnt);
+
+      
+		$("#chart8-json1").kendoChart({
+        	title: {
+            			text: "Live Call Outs, Summary",
+                        margin: {
+                                    bottom: 40
+                                }
+                	},
+			legend: {
+                   		position: "bottom"
+                	},
+			seriesDefaults: {
+                    			labels: {
+                        			// template: "#= category # - #= kendo.format('{0:P0}', percentage)#",
+									template: "#= kendo.format('{0:P0}', percentage)#",
+                        			position: "outsideEnd",
+                        			visible: true,
+                        			background: "transparent"
+                    			}
+                			},
+			series: [{
+                    	type: "pie",
+                    	data: [{
+                        	category: data[0],
+							color: "#e6e600",        // "#b30000",      // % Call Outs with status "Approved" (Job creation pending).
+                        	value: label[0]
+                    	}, {
+                        	category: data[1],
+							color: "#2E8B57",        // "#326677",      // % Call Outs with any other status.
+                        	value: label[1]
+                    	}]
+                	}],
+			tooltip: {
+                    	visible: true,
+                    	template: "#= category # - #= kendo.format('{0:P0}', percentage) #"
+                	}
+		});
+	}
+
+
+    /* -------------------------------------------------- *
+     *                  JSON1, Chart 9                    *
+     * -------------------------------------------------- */
+    function chart9_function() {
+        var label  = [];
+        var data   = [];
+        var axisy  = json1Stream.data.json1Chart9.y
+        var axisx  = json1Stream.data.json1Chart9.x
+
+
+        for (var i = 0; i < 3; i++) {
+            label[i] = axisy[i];
+        }
+
+        for (var j = 0; j < 3; j++) {
+            data[j] = axisx[j];
+        }
+
+		liveJbCnt = parseInt(axisy[2]);
+
+        console.log("JSON1 Chart 9 ====> Contenido de liveJbCnt: " + liveJbCnt);
+
+      
+		$("#chart9-json1").kendoChart({
+        	title: {
+            			text: "Live Jobs, Summary",
+                        margin: {
+                                    bottom: 40
+                                }
+                	},
+			legend: {
+                   		position: "bottom"
+                	},
+			seriesDefaults: {
+                    			labels: {
+                        			// template: "#= category # - #= kendo.format('{0:P0}', percentage)#",
+									template: "#= kendo.format('{0:P0}', percentage)#",
+                        			position: "outsideEnd",
+                        			visible: true,
+                        			background: "transparent"
+                    			}
+                			},
+			series: [{
+                    	type: "pie",
+                    	data: [{
+                        	category: data[0],
+							color: "#b30000",      // % Jobs with status "Closed".
+                        	value: label[0]
+                    	}, {
+                        	category: data[1],
+							color: "#326677",      // % Jobs with any status but "Closed".
+                        	value: label[1]
+                    	}]
+                	}],
+			tooltip: {
+                    	visible: true,
+                    	template: "#= category # - #= kendo.format('{0:P0}', percentage) #"
+                	}
+		});
+	}
+
+
+    /* -------------------------------------------------- *
+     *                  JSON1, Chart 15                   *
+     * -------------------------------------------------- */
+    function chart15_function() {
+        var label  = [];
+        var data   = [];
+        var axisy  = json1Stream.data.json1Chart15.y
+        var axisx  = json1Stream.data.json1Chart15.x
+
+
+        for (var i = 0; i < 3; i++) {
+            label[i] = axisy[i];
+        }
+
+        for (var j = 0; j < 3; j++) {
+            data[j] = axisx[j];
+        }
+
+        console.log("JSON1 Chart 15 ====> Contenido de label: " + label);
+        console.log("JSON1 Chart 15 ====> Contenido de data: " + data);
+
+      
+		$("#chart15-json1").kendoChart({
+        	title: {
+            			text: "% Pending Calibrations",
+                        margin: {
+                                    bottom: 40
+                                }
+                	},
+			legend: {
+                   		position: "bottom"
+                	},
+			seriesDefaults: {
+                    			labels: {
+                        			template: "#= category # - #= kendo.format('{0:P0}', percentage)#",
+                        			position: "outsideEnd",
+                        			visible: true,
+                        			background: "transparent"
+                    			}
+                			},
+			series: [{
+                    	type: "pie",
+                    	data: [{
+                        	category: data[0],
+							color: "#b30000",      // % Expired.
+                        	value: label[0]
+                    	}, {
+                        	category: data[1],
+							color: "#669900",      //
+                        	value: label[1]
+                    	}, {
+                        	category: data[2],
+							color: "#326677",
+                        	value: label[2]
+                    	}]
+                	}],
+			tooltip: {
+                    	visible: true,
+                    	template: "#= category # - #= kendo.format('{0:P0}', percentage) #"
+                	}
+		});
+	}
+
+
+    /* -------------------------------------------------- *
+     *                  JSON1, Chart 16                   *
+     * -------------------------------------------------- */
+    function chart16_function() {
+        var label  = [];
+        var data   = [];
+        var axisy  = json1Stream.data.json1Chart16.y
+        var axisx  = json1Stream.data.json1Chart16.x
+
+
+        for (var i = 0; i < 3; i++) {
+            label[i] = axisy[i];
+        }
+
+        for (var j = 0; j < 3; j++) {
+            data[j] = axisx[j];
+        }
+
+
+        console.log("JSON1 Chart 16 ====> Contenido de label: " + label);
+        console.log("JSON1 Chart 16 ====> Contenido de data: " + data);
+
+      
+		$("#chart16-json1").kendoChart({
+        	title: {
+            			text: "% Pending Certifications",
+                        margin: {
+                                    bottom: 40
+                                }
+                	},
+			legend: {
+                   		position: "bottom"
+                	},
+			seriesDefaults: {
+                    			labels: {
+                        			template: "#= category # - #= kendo.format('{0:P0}', percentage)#",
+                        			position: "outsideEnd",
+                        			visible: true,
+                        			background: "transparent"
+                    			}
+                			},
+			series: [{
+                    	type: "pie",
+                    	data: [{
+                        	category: data[0],
+							color: "#b30000",      // % Expired.
+                        	value: label[0]
+                    	}, {
+                        	category: data[1],
+							color: "#669900",      //
+                        	value: label[1]
+                    	}, {
+                        	category: data[2],
+							color: "#326677",
+                        	value: label[2]
+                    	}]
+                	}],
+			tooltip: {
+                    	visible: true,
+                    	template: "#= category # - #= kendo.format('{0:P0}', percentage) #"
+                	}
+		});
+	}
+
+
+    /* -------------------------------------------------- *
+     *          JSON1, Boxes 10, 11, 12, 13, 14.          *
+     * -------------------------------------------------- */
+    function chart1011121314_function() {
+        var axisy  = json1Stream.data.json1Chart10.y
+        var axisx  = json1Stream.data.json1Chart10.x
+
+
+        totMOCnt = parseInt(axisy[0]);
+
+        console.log("JSON1 - MOC Box: " + totMOCnt);
+
+        axisy  = json1Stream.data.json1Chart11.y
+        axisx  = json1Stream.data.json1Chart11.x
+
+        totRskCt = parseInt(axisy[0]);
+
+        console.log("JSON1 - RISK Box: " + totRskCt);
+
+        axisy  = json1Stream.data.json1Chart12.y
+        axisx  = json1Stream.data.json1Chart12.x
+
+        liveCARCt = parseInt(axisy[0]);
+
+        console.log("JSON1 - CAR Box: " + liveCARCt);
+
+        axisy  = json1Stream.data.json1Chart13.y
+        axisx  = json1Stream.data.json1Chart13.x
+
+        livePARCt = parseInt(axisy[0]);
+
+        console.log("JSON1 - PAR Box: " + livePARCt);
+
+        axisy  = json1Stream.data.json1Chart14.y
+        axisx  = json1Stream.data.json1Chart14.x
+
+        clsdAUDCt = parseInt(axisy[0]);
+
+        console.log("JSON1 - AUDIT Box: " + clsdAUDCt);
+    }
+
+
+    /* -------------------------------------------------- *
+     *            JSON1, Chart 19-1 (Equipment).          *
+     * -------------------------------------------------- */
+    function chart19_1_function() {
+        var label  = [];
+
+        var eqCertGt90 = [];
+        var eqCertLt90 = [];
+        var eqCertExpr = [];
+
+        var axisy  = json1Stream.data.json1Chart19.y
+        var axisx  = json1Stream.data.json1Chart19.x
+
+
+        // Fill Year data.
+        for (var i = 0, j = 0; i < axisy.length; i++, j += 9) {
+            label[i] = axisy[i];
+
+            eqCertGt90[i] = Math.round(axisx[j]);
+            eqCertLt90[i] = Math.round(axisx[j + 3]);
+            eqCertExpr[i] = Math.round(axisx[j + 6]);
+        }
+
+
+        // Ficticious data.
+/*
+        label = ['TCP', 'Coiled Tubing', 'MWD', 'Directional', 'LWD', 'Logging Sourvey', 'Slick Line Services', 'WorkOver Rigs', 'RSS', 'WL-OHLog'];
+        eqCertGt90 = [12, 16, 18, 9, 2, 7, 10, 8, 9, 15];
+        eqCertLt90 = [2, 10, 9, 4, 15, 1, 5, 14, 3, 1];
+        eqCertExpr = [8, 3, 15, 8, 4, 3, 6, 18, 1, 9];
+*/
+        console.log("JSON1 Chart 19-1 ====> Contenido de axisy: " + axisy);
+        console.log("JSON1 Chart 19-1 ====> Contenido de axisx: " + axisx);
+        console.log("JSON1 Chart 19-1 ====> label: " + label);
+        console.log("JSON1 Chart 19-1 ====>eqCertGt90 : " + eqCertGt90);
+        console.log("JSON1 Chart 19-1 ====>eqCertLt90 : " + eqCertLt90);
+        console.log("JSON1 Chart 19-1 ====>eqCertExpr : " + eqCertExpr);
+
+
+        $("#chart19-1-json1").kendoChart({
+            title: {
+                text: "Equipment Certification By Service Line - 1 Year"
+            },
+            legend: {
+                position: "bottom"
+            },
+            seriesDefaults: {
+                type: "bar",
+                stack: false
+            },
+            series: [{
+                    name: "Certif > 90 Days",
+                    data: eqCertGt90,
+                    color: "#00e6ac"
+                }, {
+                    name: "Certif < 90 Days",
+                    data: eqCertLt90,
+                    color: "#85adad"
+                }, {
+                    name: "Certif Expired",
+                    data: eqCertExpr,
+                    color: "#ff3333"
+            }],
+            valueAxis: {
+                labels: {
+                    format: "{0:n0}"
+                },
+                line: {
+                    visible: false
+                }
+            },
+            categoryAxis: {
+                categories: label,
+                majorGridLines: {
+                    visible: false
+                }
+            },
+            tooltip: {
+                visible: true,
+                format: "{0:n0}"
+            }
+        });
+
+        activeChart19_1 = [1, 0, 0]; // Year chart active on page.
+    }
+
+
+    function chart19_1_click_manager() {
+        var chart19_1_Crt  = $("#chart19-1-json1").data("kendoChart");
+
+        var label  = []
+
+        var eqCertGt90 = [];
+        var eqCertLt90 = [];
+        var eqCertExpr = [];
+
+        var axisy  = json1Stream.data.json1Chart19.y
+        var axisx  = json1Stream.data.json1Chart19.x
+
+
+        if (activeChart19_1[0] == 1) {
+            activeChart19_1 = [0, 1, 0]; // Month chart active on page.
+
+
+            for (var i = 0, j = 1; i < axisy.length; i++, j += 9) {
+                label[i] = axisy[i];
+
+                eqCertGt90[i] = Math.round(axisx[j]);
+                eqCertLt90[i] = Math.round(axisx[j + 3]);
+                eqCertExpr[i] = Math.round(axisx[j + 6]);
+            }
+
+            // Ficticious data.
+/*
+            label = ['TCP', 'Coiled Tubing', 'MWD', 'Directional', 'LWD', 'Logging Sourvey', 'Slick Line Services', 'WorkOver Rigs', 'RSS', 'WL-OHLog'];
+            eqCertGt90 = [1, 5, 2, 20, 7, 9, 3, 14, 8, 1];
+            eqCertLt90 = [4, 1, 5, 8, 3, 18, 2, 8, 6, 10];
+            eqCertExpr = [8, 3, 15, 8, 4, 3, 6, 18, 1, 9];
+*/
+
+            chart19_1_Crt.setOptions({
+                title: {
+                    text: "Equipment Certification By Service Line - 1 Month"
+                },
+                series: [{
+                        name: "Certif > 90 Days",
+                        data: eqCertGt90,
+                        color: "#00e6ac"
+                    }, {
+                        name: "Certif < 90 Days",
+                        data: eqCertLt90,
+                        color: "#85adad"
+                    }, {
+                        name: "Certif Expired",
+                        data: eqCertExpr,
+                        color: "#ff3333"
+                }]
+            });
+
+            $(chart19_1_Crt).data("kendoChart").refresh();
+        }else if (activeChart19_1[1] == 1) {
+            activeChart19_1 = [0, 0, 1]; // Week chart active on page.
+
+
+            for (var i = 0, j = 2; i < axisy.length; i++, j += 9) {
+                label[i] = axisy[i];
+
+                eqCertGt90[i] = Math.round(axisx[j]);
+                eqCertLt90[i] = Math.round(axisx[j + 3]);
+                eqCertExpr[i] = Math.round(axisx[j + 6]);
+            }
+
+/*
+            // Ficticious data.
+            label = ['TCP', 'Coiled Tubing', 'MWD', 'Directional', 'LWD', 'Logging Sourvey', 'Slick Line Services', 'WorkOver Rigs', 'RSS', 'WL-OHLog'];
+            eqCertGt90 = [1, 5, 2, 20, 7, 9, 3, 14, 8, 1];
+            eqCertLt90 = [4, 1, 5, 8, 3, 18, 2, 8, 6, 10];
+            eqCertExpr = [8, 3, 15, 8, 4, 3, 6, 18, 1, 9];
+*/
+
+            chart19_1_Crt.setOptions({
+                title: {
+                    text: "Equipment Certification By Service Line - 1 Week"
+                },
+                series: [{
+                        name: "Certif > 90 Days",
+                        data: eqCertGt90,
+                        color: "#00e6ac"
+                    }, {
+                        name: "Certif < 90 Days",
+                        data: eqCertLt90,
+                        color: "#85adad"
+                    }, {
+                        name: "Certif Expired",
+                        data: eqCertExpr,
+                        color: "#ff3333"
+                }]
+            });
+
+            $(chart19_1_Crt).data("kendoChart").refresh();
+        }else if (activeChart19_1[2] == 1) {
+            activeChart19_1 = [1, 0, 0]; // Year chart active on page.
+
+            for (var i = 0, j = 0; i < axisy.length; i++, j += 9) {
+                label[i] = axisy[i];
+
+                eqCertGt90[i] = Math.round(axisx[j]);
+                eqCertLt90[i] = Math.round(axisx[j + 3]);
+                eqCertExpr[i] = Math.round(axisx[j + 6]);
+            }
+/*
+            // Ficticious data.
+            label = ['TCP', 'Coiled Tubing', 'MWD', 'Directional', 'LWD', 'Logging Sourvey', 'Slick Line Services', 'WorkOver Rigs', 'RSS', 'WL-OHLog'];
+            eqCertGt90 = [1, 5, 2, 20, 7, 9, 3, 14, 8, 1];
+            eqCertLt90 = [4, 1, 5, 8, 3, 18, 2, 8, 6, 10];
+            eqCertExpr = [8, 3, 15, 8, 4, 3, 6, 18, 1, 9];
+*/
+
+            chart19_1_Crt.setOptions({
+                title: {
+                    text: "Equipment Certification By Service Line - 1 Year"
+                },
+                series: [{
+                        name: "Certif > 90 Days",
+                        data: eqCertGt90,
+                        color: "#00e6ac"
+                    }, {
+                        name: "Certif < 90 Days",
+                        data: eqCertLt90,
+                        color: "#85adad"
+                    }, {
+                        name: "Certif Expired",
+                        data: eqCertExpr,
+                        color: "#ff3333"
+                }]
+            });
+
+            $(chart19_1_Crt).data("kendoChart").refresh();
+        }
+    }
+
+
+    /* -------------------------------------------------- *
+     *           JSON1, Chart 19-2 (Service Tool).        *
+     * -------------------------------------------------- */
+    function chart19_2_function() {
+        var label  = [];
+
+        var eqCertGt90 = [];
+        var eqCertLt90 = [];
+        var eqCertExpr = [];
+
+        var axisy  = json1Stream.data.json1Chart193.y
+        var axisx  = json1Stream.data.json1Chart193.x
+
+
+        // Fill Year data.
+        for (var i = 0, j = 0; i < axisy.length; i++, j += 12) {
+            label[i] = axisy[i];
+
+            eqCertGt90[i] = Math.round(axisx[j]);
+            eqCertLt90[i] = Math.round(axisx[j + 3]);
+            eqCertExpr[i] = Math.round(axisx[j + 6]);
+        }
+
+/*
+        // Ficticious data.
+        label = ['TCP', 'Coiled Tubing', 'MWD', 'Directional', 'LWD', 'Logging Sourvey', 'Slick Line Services', 'WorkOver Rigs', 'RSS', 'WL-OHLog'];
+        eqCertGt90 = [12, 16, 18, 9, 2, 7, 10, 8, 9, 15];
+        eqCertLt90 = [2, 10, 9, 4, 15, 1, 5, 14, 3, 1];
+        eqCertExpr = [8, 3, 15, 8, 4, 3, 6, 18, 1, 9];
+*/
+        console.log("JSON1 Chart 19-2 ====> Contenido de axisy: " + axisy);
+        console.log("JSON1 Chart 19-2 ====> Contenido de axisx: " + axisx);
+        console.log("JSON1 Chart 19-2 ====> label: " + label);
+        console.log("JSON1 Chart 19-2 ====>eqCertGt90 : " + eqCertGt90);
+        console.log("JSON1 Chart 19-2 ====>eqCertLt90 : " + eqCertLt90);
+        console.log("JSON1 Chart 19-2 ====>eqCertExpr : " + eqCertExpr);
+
+
+        $("#chart19-2-json1").kendoChart({
+            title: {
+                text: "Service Tool Certification By Service Line - 1 Year"
+            },
+            legend: {
+                position: "bottom"
+            },
+            seriesDefaults: {
+                type: "bar",
+                stack: false
+            },
+            series: [{
+                    name: "Certif > 90 Days",
+                    data: eqCertGt90,
+                    color: "#00e6ac"
+                }, {
+                    name: "Certif < 90 Days",
+                    data: eqCertLt90,
+                    color: "#85adad"
+                }, {
+                    name: "Certif Expired",
+                    data: eqCertExpr,
+                    color: "#ff3333"
+            }],
+            valueAxis: {
+                labels: {
+                    format: "{0:n0}"
+                },
+                line: {
+                    visible: false
+                }
+            },
+            categoryAxis: {
+                categories: label,
+                majorGridLines: {
+                    visible: false
+                }
+            },
+            tooltip: {
+                visible: true,
+                format: "{0:n0}"
+            }
+        });
+
+        activeChart19_2 = [1, 0, 0]; // Year chart active on page.
+    }
+
+
+    function chart19_2_click_manager() {
+        var chart19_2_Crt  = $("#chart19-2-json1").data("kendoChart");
+
+        var label  = []
+
+        var eqCertGt90 = [];
+        var eqCertLt90 = [];
+        var eqCertExpr = [];
+
+        var axisy  = json1Stream.data.json1Chart193.y
+        var axisx  = json1Stream.data.json1Chart193.x
+
+
+        if (activeChart19_2[0] == 1) {
+            activeChart19_2 = [0, 1, 0]; // Month chart active on page.
+
+
+            for (var i = 0, j = 1; i < axisy.length; i++, j += 12) {
+                label[i] = axisy[i];
+
+                eqCertGt90[i] = Math.round(axisx[j]);
+                eqCertLt90[i] = Math.round(axisx[j + 3]);
+                eqCertExpr[i] = Math.round(axisx[j + 6]);
+            }
+
+/*
+            // Ficticious data.
+            label = ['TCP', 'Coiled Tubing', 'MWD', 'Directional', 'LWD', 'Logging Sourvey', 'Slick Line Services', 'WorkOver Rigs', 'RSS', 'WL-OHLog'];
+            eqCertGt90 = [1, 5, 2, 20, 7, 9, 3, 14, 8, 1];
+            eqCertLt90 = [4, 1, 5, 8, 3, 18, 2, 8, 6, 10];
+            eqCertExpr = [8, 3, 15, 8, 4, 3, 6, 18, 1, 9];
+*/
+
+            chart19_2_Crt.setOptions({
+                title: {
+                    text: "Service Tool Certification By Service Line - 1 Month"
+                },
+                series: [{
+                        name: "Certif > 90 Days",
+                        data: eqCertGt90,
+                        color: "#00e6ac"
+                    }, {
+                        name: "Certif < 90 Days",
+                        data: eqCertLt90,
+                        color: "#85adad"
+                    }, {
+                        name: "Certif Expired",
+                        data: eqCertExpr,
+                        color: "#ff3333"
+                }]
+            });
+
+            $(chart19_2_Crt).data("kendoChart").refresh();
+        }else if (activeChart19_2[1] == 1) {
+            activeChart19_2 = [0, 0, 1]; // Week chart active on page.
+
+
+            for (var i = 0, j = 2; i < axisy.length; i++, j += 12) {
+                label[i] = axisy[i];
+
+                eqCertGt90[i] = Math.round(axisx[j]);
+                eqCertLt90[i] = Math.round(axisx[j + 3]);
+                eqCertExpr[i] = Math.round(axisx[j + 6]);
+            }
+
+/*
+            // Ficticious data.
+            label = ['TCP', 'Coiled Tubing', 'MWD', 'Directional', 'LWD', 'Logging Sourvey', 'Slick Line Services', 'WorkOver Rigs', 'RSS', 'WL-OHLog'];
+            eqCertGt90 = [1, 5, 2, 20, 7, 9, 3, 14, 8, 1];
+            eqCertLt90 = [4, 1, 5, 8, 3, 18, 2, 8, 6, 10];
+            eqCertExpr = [8, 3, 15, 8, 4, 3, 6, 18, 1, 9];
+*/
+
+            chart19_2_Crt.setOptions({
+                title: {
+                    text: "Service Tool Certification By Service Line - 1 Week"
+                },
+                series: [{
+                        name: "Certif > 90 Days",
+                        data: eqCertGt90,
+                        color: "#00e6ac"
+                    }, {
+                        name: "Certif < 90 Days",
+                        data: eqCertLt90,
+                        color: "#85adad"
+                    }, {
+                        name: "Certif Expired",
+                        data: eqCertExpr,
+                        color: "#ff3333"
+                }]
+            });
+
+            $(chart19_2_Crt).data("kendoChart").refresh();
+        }else if (activeChart19_2[2] == 1) {
+            activeChart19_2 = [1, 0, 0]; // Year chart active on page.
+
+
+            for (var i = 0, j = 0; i < axisy.length; i++, j += 12) {
+                label[i] = axisy[i];
+
+                eqCertGt90[i] = Math.round(axisx[j]);
+                eqCertLt90[i] = Math.round(axisx[j + 3]);
+                eqCertExpr[i] = Math.round(axisx[j + 6]);
+            }
+
+/*
+            // Ficticious data.
+            label = ['TCP', 'Coiled Tubing', 'MWD', 'Directional', 'LWD', 'Logging Sourvey', 'Slick Line Services', 'WorkOver Rigs', 'RSS', 'WL-OHLog'];
+            eqCertGt90 = [1, 5, 2, 20, 7, 9, 3, 14, 8, 1];
+            eqCertLt90 = [4, 1, 5, 8, 3, 18, 2, 8, 6, 10];
+            eqCertExpr = [8, 3, 15, 8, 4, 3, 6, 18, 1, 9];
+*/
+
+            chart19_2_Crt.setOptions({
+                title: {
+                    text: "Service Tool Certification By Service Line - 1 Year"
+                },
+                series: [{
+                        name: "Certif > 90 Days",
+                        data: eqCertGt90,
+                        color: "#00e6ac"
+                    }, {
+                        name: "Certif < 90 Days",
+                        data: eqCertLt90,
+                        color: "#85adad"
+                    }, {
+                        name: "Certif Expired",
+                        data: eqCertExpr,
+                        color: "#ff3333"
+                }]
+            });
+
+            $(chart19_2_Crt).data("kendoChart").refresh();
+        }
+    }
+
+
+    /* -------------------------------------------------- *
+     *              JSON1, Chart 19-3 (Tool).             *
+     * -------------------------------------------------- */
+    function chart19_3_function() {
+        var label  = [];
+
+        var eqCertGt90 = [];
+        var eqCertLt90 = [];
+        var eqCertExpr = [];
+
+        var axisy  = json1Stream.data.json1Chart192.y
+        var axisx  = json1Stream.data.json1Chart192.y
+
+
+        // Fill Year data.
+        for (var i = 0, j = 0; i < axisy.length; i++, j += 12) {
+            label[i] = axisy[i];
+
+            eqCertGt90[i] = Math.round(axisx[j]);
+            eqCertLt90[i] = Math.round(axisx[j + 3]);
+            eqCertExpr[i] = Math.round(axisx[j + 6]);
+        }
+
+/*
+        // Ficticious data.
+        label = ['TCP', 'Coiled Tubing', 'MWD', 'Directional', 'LWD', 'Logging Sourvey', 'Slick Line Services', 'WorkOver Rigs', 'RSS', 'WL-OHLog'];
+        eqCertGt90 = [12, 16, 18, 9, 2, 7, 10, 8, 9, 15];
+        eqCertLt90 = [2, 10, 9, 4, 15, 1, 5, 14, 3, 1];
+        eqCertExpr = [8, 3, 15, 8, 4, 3, 6, 18, 1, 9];
+*/
+
+        console.log("JSON1 Chart 19-2 ====> Contenido de axisy: " + axisy);
+        console.log("JSON1 Chart 19-2 ====> Contenido de axisx: " + axisx);
+        console.log("JSON1 Chart 19-2 ====> label: " + label);
+        console.log("JSON1 Chart 19-2 ====>eqCertGt90 : " + eqCertGt90);
+        console.log("JSON1 Chart 19-2 ====>eqCertLt90 : " + eqCertLt90);
+        console.log("JSON1 Chart 19-2 ====>eqCertExpr : " + eqCertExpr);
+
+
+        $("#chart19-3-json1").kendoChart({
+            title: {
+                text: "Tool Certification By Service Line - 1 Year"
+            },
+            legend: {
+                position: "bottom"
+            },
+            seriesDefaults: {
+                type: "bar",
+                stack: false
+            },
+            series: [{
+                    name: "Certif > 90 Days",
+                    data: eqCertGt90,
+                    color: "#00e6ac"
+                }, {
+                    name: "Certif < 90 Days",
+                    data: eqCertLt90,
+                    color: "#85adad"
+                }, {
+                    name: "Certif Expired",
+                    data: eqCertExpr,
+                    color: "#ff3333"
+            }],
+            valueAxis: {
+                labels: {
+                    format: "{0:n0}"
+                },
+                line: {
+                    visible: false
+                }
+            },
+            categoryAxis: {
+                categories: label,
+                majorGridLines: {
+                    visible: false
+                }
+            },
+            tooltip: {
+                visible: true,
+                format: "{0:n0}"
+            }
+        });
+
+        activeChart19_3 = [1, 0, 0]; // Year chart active on page.
+    }
+
+
+    function chart19_3_click_manager() {
+        var chart19_3_Crt  = $("#chart19-3-json1").data("kendoChart");
+
+        var label  = []
+
+        var eqCertGt90 = [];
+        var eqCertLt90 = [];
+        var eqCertExpr = [];
+
+        var axisy  = json1Stream.data.json1Chart192.y
+        var axisx  = json1Stream.data.json1Chart192.x
+
+
+        if (activeChart19_3[0] == 1) {
+            activeChart19_3 = [0, 1, 0]; // Month chart active on page.
+
+
+            for (var i = 0, j = 1; i < axisy.length; i++, j += 12) {
+                label[i] = axisy[i];
+
+                eqCertGt90[i] = Math.round(axisx[j]);
+                eqCertLt90[i] = Math.round(axisx[j + 3]);
+                eqCertExpr[i] = Math.round(axisx[j + 6]);
+            }
+
+/*
+            // Ficticious data.
+            label = ['TCP', 'Coiled Tubing', 'MWD', 'Directional', 'LWD', 'Logging Sourvey', 'Slick Line Services', 'WorkOver Rigs', 'RSS', 'WL-OHLog'];
+            eqCertGt90 = [1, 5, 2, 20, 7, 9, 3, 14, 8, 1];
+            eqCertLt90 = [4, 1, 5, 8, 3, 18, 2, 8, 6, 10];
+            eqCertExpr = [8, 3, 15, 8, 4, 3, 6, 18, 1, 9];
+*/
+
+            chart19_3_Crt.setOptions({
+                title: {
+                    text: "Tool Certification By Service Line - 1 Month"
+                },
+                series: [{
+                        name: "Certif > 90 Days",
+                        data: eqCertGt90,
+                        color: "#00e6ac"
+                    }, {
+                        name: "Certif < 90 Days",
+                        data: eqCertLt90,
+                        color: "#85adad"
+                    }, {
+                        name: "Certif Expired",
+                        data: eqCertExpr,
+                        color: "#ff3333"
+                }]
+            });
+
+            $(chart19_3_Crt).data("kendoChart").refresh();
+        }else if (activeChart19_3[1] == 1) {
+            activeChart19_3 = [0, 0, 1]; // Week chart active on page.
+
+
+            for (var i = 0, j = 2; i < axisy.length; i++, j += 12) {
+                label[i] = axisy[i];
+
+                eqCertGt90[i] = Math.round(axisx[j]);
+                eqCertLt90[i] = Math.round(axisx[j + 3]);
+                eqCertExpr[i] = Math.round(axisx[j + 6]);
+            }
+
+/*
+            // Ficticious data.
+            label = ['TCP', 'Coiled Tubing', 'MWD', 'Directional', 'LWD', 'Logging Sourvey', 'Slick Line Services', 'WorkOver Rigs', 'RSS', 'WL-OHLog'];
+            eqCertGt90 = [1, 5, 2, 20, 7, 9, 3, 14, 8, 1];
+            eqCertLt90 = [4, 1, 5, 8, 3, 18, 2, 8, 6, 10];
+            eqCertExpr = [8, 3, 15, 8, 4, 3, 6, 18, 1, 9];
+*/
+
+            chart19_3_Crt.setOptions({
+                title: {
+                    text: "Tool Certification By Service Line - 1 Week"
+                },
+                series: [{
+                        name: "Certif > 90 Days",
+                        data: eqCertGt90,
+                        color: "#00e6ac"
+                    }, {
+                        name: "Certif < 90 Days",
+                        data: eqCertLt90,
+                        color: "#85adad"
+                    }, {
+                        name: "Certif Expired",
+                        data: eqCertExpr,
+                        color: "#ff3333"
+                }]
+            });
+
+            $(chart19_3_Crt).data("kendoChart").refresh();
+        }else if (activeChart19_3[2] == 1) {
+            activeChart19_3 = [1, 0, 0]; // Year chart active on page.
+
+
+            for (var i = 0, j = 0; i < axisy.length; i++, j += 12) {
+                label[i] = axisy[i];
+
+                eqCertGt90[i] = Math.round(axisx[j]);
+                eqCertLt90[i] = Math.round(axisx[j + 3]);
+                eqCertExpr[i] = Math.round(axisx[j + 6]);
+            }
+
+/*
+            // Ficticious data.
+            label = ['TCP', 'Coiled Tubing', 'MWD', 'Directional', 'LWD', 'Logging Sourvey', 'Slick Line Services', 'WorkOver Rigs', 'RSS', 'WL-OHLog'];
+            eqCertGt90 = [1, 5, 2, 20, 7, 9, 3, 14, 8, 1];
+            eqCertLt90 = [4, 1, 5, 8, 3, 18, 2, 8, 6, 10];
+            eqCertExpr = [8, 3, 15, 8, 4, 3, 6, 18, 1, 9];
+*/
+
+            chart19_3_Crt.setOptions({
+                title: {
+                    text: "Tool Certification By Service Line - 1 Year"
+                },
+                series: [{
+                        name: "Certif > 90 Days",
+                        data: eqCertGt90,
+                        color: "#00e6ac"
+                    }, {
+                        name: "Certif < 90 Days",
+                        data: eqCertLt90,
+                        color: "#85adad"
+                    }, {
+                        name: "Certif Expired",
+                        data: eqCertExpr,
+                        color: "#ff3333"
+                }]
+            });
+
+            $(chart19_3_Crt).data("kendoChart").refresh();
+        }
+    }
+
+
+  /* -------------------------------------------------- *
+     *                 JSON1, Chart 20.                 *
+     * ------------------------------------------------ */
+    function chart20_function() {
+        var label  = [];
+
+        var mdeCalGt90 = [];
+        var mdeCalLt90 = [];
+        var mdeCalExpr = [];
+
+        var axisy  = json1Stream.data.json1Chart20.y
+        var axisx  = json1Stream.data.json1Chart20.x
+
+
+        // Fill Year data.
+        for (var i = 0, j = 0; i < axisy.length; i++, j += 9) {
+            label[i] = axisy[i];
+
+            mdeCalGt90[i] = Math.round(axisx[j]);
+            mdeCalLt90[i] = Math.round(axisx[j + 3]);
+            mdeCalExpr[i] = Math.round(axisx[j + 6]);
+        }
+
+
+        // Ficticious data.
+/*
+        label = ['TCP', 'Coiled Tubing', 'MWD', 'Directional', 'LWD', 'Logging Sourvey', 'Slick Line Services', 'WorkOver Rigs', 'RSS', 'WL-OHLog'];
+        eqCertGt90 = [12, 16, 18, 9, 2, 7, 10, 8, 9, 15];
+        eqCertLt90 = [2, 10, 9, 4, 15, 1, 5, 14, 3, 1];
+        eqCertExpr = [8, 3, 15, 8, 4, 3, 6, 18, 1, 9];
+*/
+        console.log("JSON1 Chart 20 ====> Contenido de axisy: " + axisy);
+        console.log("JSON1 Chart 20 ====> Contenido de axisx: " + axisx);
+        console.log("JSON1 Chart 20 ====> label: " + label);
+        console.log("JSON1 Chart 20 ====>mdeCalGt90 : " + mdeCalGt90);
+        console.log("JSON1 Chart 20 ====>mdeCalLt90 : " + mdeCalLt90);
+        console.log("JSON1 Chart 20 ====>mdeCalExpr : " + mdeCalExpr);
+
+
+        $("#chart20-json1").kendoChart({
+            title: {
+                text: "Calibration Status By Service Line - 1 Year"
+            },
+            legend: {
+                position: "bottom"
+            },
+            seriesDefaults: {
+                type: "bar",
+                stack: false
+            },
+            series: [{
+                    name: "Calib > 90 Days",
+                    data: mdeCalGt90,
+                    color: "#00e6ac"
+                }, {
+                    name: "Calib < 90 Days",
+                    data: mdeCalLt90,
+                    color: "#85adad"
+                }, {
+                    name: "Calib Expired",
+                    data: mdeCalExpr,
+                    color: "#ff3333"
+            }],
+            valueAxis: {
+                labels: {
+                    format: "{0:n0}"
+                },
+                line: {
+                    visible: false
+                }
+            },
+            categoryAxis: {
+                categories: label,
+                majorGridLines: {
+                    visible: false
+                }
+            },
+            tooltip: {
+                visible: true,
+                format: "{0:n0}"
+            }
+        });
+
+        activeChart20 = [1, 0, 0]; // Year chart active on page.
+    }
+
+
+    function chart20_click_manager() {
+        var chart20_Crt  = $("#chart20-json1").data("kendoChart");
+
+        var label  = []
+
+        var mdeCalGt90 = [];
+        var mdeCalLt90 = [];
+        var mdeCalExpr = [];
+
+        var axisy  = json1Stream.data.json1Chart20.y
+        var axisx  = json1Stream.data.json1Chart20.x
+
+
+        if (activeChart20[0] == 1) {
+            activeChart20 = [0, 1, 0]; // Month chart active on page.
+
+
+            for (var i = 0, j = 1; i < axisy.length; i++, j += 9) {
+                label[i] = axisy[i];
+
+                mdeCalGt90[i] = Math.round(axisx[j]);
+                mdeCalLt90[i] = Math.round(axisx[j + 3]);
+                mdeCalExpr[i] = Math.round(axisx[j + 6]);
+            }
+
+            // Ficticious data.
+/*
+            label = ['TCP', 'Coiled Tubing', 'MWD', 'Directional', 'LWD', 'Logging Sourvey', 'Slick Line Services', 'WorkOver Rigs', 'RSS', 'WL-OHLog'];
+            eqCertGt90 = [1, 5, 2, 20, 7, 9, 3, 14, 8, 1];
+            eqCertLt90 = [4, 1, 5, 8, 3, 18, 2, 8, 6, 10];
+            eqCertExpr = [8, 3, 15, 8, 4, 3, 6, 18, 1, 9];
+*/
+
+            chart20_Crt.setOptions({
+                title: {
+                    text: "Calibration Status By Service Line - 1 Month"
+                },
+                series: [{
+                        name: "Calib > 90 Days",
+                        data: mdeCalGt90,
+                        color: "#00e6ac"
+                    }, {
+                        name: "Calib < 90 Days",
+                        data: mdeCalLt90,
+                        color: "#85adad"
+                    }, {
+                        name: "Calib Expired",
+                        data: mdeCalExpr,
+                        color: "#ff3333"
+                }]
+            });
+
+            $(chart20_Crt).data("kendoChart").refresh();
+        }else if (activeChart20[1] == 1) {
+            activeChart20 = [0, 0, 1]; // Week chart active on page.
+
+
+            for (var i = 0, j = 2; i < axisy.length; i++, j += 9) {
+                label[i] = axisy[i];
+
+                mdeCalGt90[i] = Math.round(axisx[j]);
+                mdeCalLt90[i] = Math.round(axisx[j + 3]);
+                mdeCalExpr[i] = Math.round(axisx[j + 6]);
+            }
+
+/*
+            // Ficticious data.
+            label = ['TCP', 'Coiled Tubing', 'MWD', 'Directional', 'LWD', 'Logging Sourvey', 'Slick Line Services', 'WorkOver Rigs', 'RSS', 'WL-OHLog'];
+            eqCertGt90 = [1, 5, 2, 20, 7, 9, 3, 14, 8, 1];
+            eqCertLt90 = [4, 1, 5, 8, 3, 18, 2, 8, 6, 10];
+            eqCertExpr = [8, 3, 15, 8, 4, 3, 6, 18, 1, 9];
+*/
+
+            chart20_Crt.setOptions({
+                title: {
+                    text: "Calibration Status By Service Line - 1 Week"
+                },
+                series: [{
+                        name: "Calib > 90 Days",
+                        data: mdeCalGt90,
+                        color: "#00e6ac"
+                    }, {
+                        name: "Calib < 90 Days",
+                        data: mdeCalLt90,
+                        color: "#85adad"
+                    }, {
+                        name: "Calib Expired",
+                        data: mdeCalExpr,
+                        color: "#ff3333"
+                }]
+            });
+
+            $(chart20_Crt).data("kendoChart").refresh();
+        }else if (activeChart20[2] == 1) {
+            activeChart20 = [1, 0, 0]; // Year chart active on page.
+
+            for (var i = 0, j = 0; i < axisy.length; i++, j += 9) {
+                label[i] = axisy[i];
+
+                mdeCalGt90[i] = Math.round(axisx[j]);
+                mdeCalLt90[i] = Math.round(axisx[j + 3]);
+                mdeCalExpr[i] = Math.round(axisx[j + 6]);
+            }
+/*
+            // Ficticious data.
+            label = ['TCP', 'Coiled Tubing', 'MWD', 'Directional', 'LWD', 'Logging Sourvey', 'Slick Line Services', 'WorkOver Rigs', 'RSS', 'WL-OHLog'];
+            eqCertGt90 = [1, 5, 2, 20, 7, 9, 3, 14, 8, 1];
+            eqCertLt90 = [4, 1, 5, 8, 3, 18, 2, 8, 6, 10];
+            eqCertExpr = [8, 3, 15, 8, 4, 3, 6, 18, 1, 9];
+*/
+
+            chart20_Crt.setOptions({
+                title: {
+                    text: "Calibration Status By Service Line - 1 Year"
+                },
+                series: [{
+                        name: "Calib > 90 Days",
+                        data: mdeCalGt90,
+                        color: "#00e6ac"
+                    }, {
+                        name: "Calib < 90 Days",
+                        data: mdeCalLt90,
+                        color: "#85adad"
+                    }, {
+                        name: "Calib Expired",
+                        data: mdeCalExpr,
+                        color: "#ff3333"
+                }]
+            });
+
+            $(chart20_Crt).data("kendoChart").refresh();
+        }
+    }
+
+
+    /* ------------------------------------------------------------------------------------------- *
+     * Manage Batch Job "CollectDataForQVIEW1" JSON stream (as read from DummyTest object record). *
+     * ------------------------------------------------------------------------------------------- */
+    function readBatchJson1Stream(values) {
+        json1Stream = JSON.parse(values);
+
+
+		chart1_function();
+
+        $("div.CustomerFeedBk").text(cstExpPtc.toString() + "%");
+
+        chart234_function();
+
+        $("div.calibExpCntr").text(calExpCnt.toString());
+        $("div.calibLess90DCntr").text(calL90Cnt.toString());
+        $("div.calibGretr90DCntr").text(calG90Cnt.toString());
+
+		chart567_function();
+
+        $("div.certExpCntr").text(cerExpCnt.toString());
+        $("div.certLess90DCntr").text(cerL90Cnt.toString());
+        $("div.certGretr90DCntr").text(cerG90Cnt.toString());
+
+		chart8_function();
+
+		chart9_function();
+
+        $("div.liveCallOutCntr").text(liveClCnt.toString());
+        $("div.liveJobCntr").text(liveJbCnt.toString());
+
+        chart1011121314_function();
+
+        $("div.TotMOCCntr").text(totMOCnt.toString());
+        $("div.TotRISKCntr").text(totRskCt.toString());
+        $("div.LiveCARCntr").text(liveCARCt.toString());
+        $("div.LivePARCntr").text(livePARCt.toString());
+        $("div.LiveAUDCntr").text(clsdAUDCt.toString());
+
+		chart15_function();
+
+		chart16_function();
+
+        chart19_1_function();
+        chart19_2_function();
+        chart19_3_function();
+
+        chart20_function();
+    }
+
+
+/* Developed by Gian Franco */
+function incidentReportByServiceLine(values) {
+        
+        var axisy = [];
+        
+        var axisx = [];
+  
+        var jsonStream = JSON.parse(values);
+
+                
+        jsonStream.data.incedent_report.forEach(function(element) {
+            
+            axisy.push(element.y);
+           
+            axisx.push(element.x);
+    
+        });
+        
+       
+        var series = [{
+          name: "Incident Report",
+          data: axisx,
+          color: "#1E90FF",
+        }];
+
+        $("#chartIncidentReportByServiceLine").kendoChart({
+            title: {
+                text: "Incident Report By Service Line"
+            },
+            legend: {
+                position: "bottom"
+            },
+            seriesDefaults: {
+                type: "bar",
+                stack: true
+            },
+            series: series,
+            valueAxis: {
+                line: {
+                    visible: false
+                },
+                majorUnit: 1
+            },
+            categoryAxis: {
+                categories: axisy,
+                majorGridLines: {
+                    visible: false
+                }
+            },
+            tooltip: {
+                visible: true,
+                format: "{0}"
+            }
+        });
+    }
+
+
+    /* ------------------------- *
+     * Main management function. *
+     * ------------------------- */
+	customOnPageRender(function () {
+        // Read Batch Job's JSON stream data for charts 1 to 20.
+        rbf_selectQuery("select json1 from DummyTest", 1, readBatchJson1Stream, true);
+		// rbf_selectQuery("select jsonDEMO from DummyTest", 1, readBatchJson1Stream, true);
+
+        rbf_selectQuery("select json6 from DummyTest", 1, incidentReportByServiceLine, true);
+    });
+</script>
