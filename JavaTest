@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Ejemplos de HTML y Javascript</title>
+
+    	<base href="https://demos.telerik.com/kendo-ui/bar-charts/index">
+    	<base href="https://demos.telerik.com/kendo-ui/chart-api/index">
+
+    	<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.common-material.min.css" />
+    	<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.material.min.css" />
+    	<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.material.mobile.min.css" />
+
+    	<script src="https://kendo.cdn.telerik.com/2018.1.221/js/jquery.min.js"></script>
+    	<script src="https://kendo.cdn.telerik.com/2018.1.221/js/kendo.all.min.js"></script>
+    	<script src="https://kendo.cdn.telerik.com/2018.2.620/js/jszip.min.js"></script>
+    </head>
+
+    <body>
+		<!-- ------------------------------------------------------------------- -->
+		<!-- Ejemplo de objeto en al cual una de sus propiedades es una funcion. -->
+		<!-- Ejemplo de array en el cual uno de sus elementos es una funcion.    -->
+		<!-- ------------------------------------------------------------------- -->
+		<script>
+		   // Ejemplo de objeto en el cual una de sus propiedades es una funcion. En este contexto a dicha funcion se le llama Metodo.
+		   // Este objeto representa dos puntos p y q en el plano cartesiano, equipados con una funcion Distancia "pitagoreana" 
+           // entre los puntos
+           //                              .----------------------------.
+           //                              |          2              2  |
+           //                   d(p, q) = \| (x2 - x1)   +  (y2 - y1)
+           //                              v
+           // En matematica, se trata de un conjunto al cual se le ha añadido una propiedad especial: una metrica o funcion distancia.
+           // Esto convierte este conjunto en un Espacio.
+		   let plane = {
+		                   p: {x: 0, y: 0},
+		                   q: {x: 1, y: 1},
+		                   dist: function() {
+		                                       let a = this.q.x - this.p.x;
+		                                       let b = this.q.y - this.p.y;
+
+		                                       return Math.sqrt(a*a + b*b);
+		                                    }
+		                }
+
+		   console.log(plane.dist())
+
+		   // Ejemplo de arreglo en el cual uno de sus elementos es una funcion.
+		   let points = [
+		                   {x: 0, y: 0},
+		                   {x: 1, y: 1},
+
+		                   function() {
+		                                 let p = this[0];
+		                                 let q = this[1];
+		                                 let a  = q.x - p.x;
+		                                 let b  = q.y - p.y;
+
+		                                 return Math.sqrt(a*a + b*b);
+		                            }
+		                ]
+
+		   console.log(points[2]())
+		</script>
+
+
+        <!-- ------------------------------------------------------------------------- -->
+        <!-- Ejemplo de deteccion y uso de localStorage y SessionStorage del navegador -->
+        <!-- ------------------------------------------------------------------------- -->
+        <script>
+		   let plano = {
+		                   p: {x: 0, y: 0},
+		                   q: {x: 1, y: 1},
+		                   dist: function() {
+		                                       let a = this.q.x - this.p.x;
+		                                       let b = this.q.y - this.p.y;
+
+		                                       return Math.sqrt(a*a + b*b);
+		                                    }
+		                }
+
+           let devuelto;
+
+           if (typeof(Storage) !== "undefined") {
+              console.log("LocalStorage disponible");
+
+              // Ejemplo de almacenar datos en el localStorage.
+              localStorage.setItem("item", JSON.stringify(plano));
+
+              devuelto = JSON.parse(localStorage.getItem("item"));
+              console.log(devuelto.p);
+           } else {
+              console.log("LocalStorage no soportado en este navegador")
+           }
+        </script>
+
+
+        <!-- --------------- -->
+        <!-- Ejemplo de JSON -->
+        <!-- --------------- -->
+        <!-- Area en la pagina HTML para mostrar la lista de paises (de lo que trata el ejemplo) -->
+        <textarea id="countries" style="width:1000px;height:1000px"></textarea>
+
+    	<script>
+    		// Lee el JSON en la siguiente URL. El parametro de la callback function sera de tipo object.
+    		$.getJSON('https://raw.githubusercontent.com/samayo/country-json/master/src/country-by-name.json', function(data) {
+
+                console.log("data es: " + typeof data);
+
+                text = "";     // Variable que contendra la lista de paises.
+
+                //
+                // Itera a traves del objeto data.
+                //
+                for(var i = 0; i < data.length; i++) {
+                	var pais = data[i];
+
+                	console.log("data[i] es: " + typeof data[i] + " | pais es: " + typeof pais);
+
+                	for(property in pais) {
+                		// text += property + ": " + pais[property] + "\n";
+                		text += pais[property] + ",";
+                	}
+				}
+
+				$("#countries").val(text);
+
+				var arreglo_paises = [];
+
+				arreglo_paises = text.split(",");
+
+				console.log(arreglo_paises);
+    		});
+    	</script>
+
+
+		<!-- Ejemplo de grafico kendo. -->
+		<div id="example">
+			<div class="demo-section k-content wide">
+		    	<div id="chart"></div>
+			</div>
+
+			<div class="box wide">
+		    	<div class="box-col">
+		        	<h4>API Functions</h4>
+
+		        	<ul class="options">
+		            	<li>
+		                	<input id="typeColumn" name="seriesType" type="radio" value="column" checked="checked" autocomplete="off" />
+		                	<label for="typeColumn">Columns</label>
+		            	</li>
+
+		            	<li>
+		                	<input id="typeBar" name="seriesType" type="radio" value="bar" autocomplete="off" />
+		                	<label for="typeBar">Bars</label>
+		            	</li>
+
+		            	<li>
+		                	<input id="typeLine" name="seriesType" type="radio" value="line" autocomplete="off" />
+		                	<label for="typeLine">Lines</label>
+		            	</li>
+
+		            	<li>
+		                	<input id="stack" type="checkbox" autocomplete="off" checked="checked" />
+		                	<label for="stack">Stacked</label>
+		            	</li>
+		        	</ul>
+
+		        	<p>
+		            	<strong>refresh()</strong> will be called on each configuration change
+		        	</p>
+		    	</div>
+			</div>
+
+			<script>
+		    	var series = [
+		    		{
+		        		name: "Total Visits",
+		        		data: [56000, 63000, 74000, 91000, 117000, 138000],
+
+		        		// Line chart marker type
+		        		markers: { type: "square" }
+		    		}, 
+		    		{
+		        		name: "Unique visitors",
+		        		data: [52000, 34000, 23000, 48000, 67000, 83000]
+		    		}
+		    	];
+
+				function createChart() 
+				{
+		        	$("#chart").kendoChart({
+		            	title: {
+		                	text: "Site Visitors Stats /thousands/"
+		            	},
+		            	legend: {
+		                	position: "bottom"
+		            	},
+		            	seriesDefaults: {
+		                	type: "column",
+		                	stack: true
+		            	},
+		            	series: series,
+		            	valueAxis: {
+		                	line: {
+		                    	visible: false
+		                	}
+		            	},
+		            	categoryAxis: {
+		                	categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+		                	majorGridLines: {
+		                    	visible: false
+		                	}
+		            	},
+		            	tooltip: {
+		                	visible: true,
+		                	format: "{0}"
+		            	}
+		        	});
+		    	}
+
+		    	$(document).ready(function() {
+		        	createChart();
+
+		        	$(document).bind("kendo:skinChange", createChart);
+
+		        	$(".options").bind("change", refresh);
+		    	});
+
+		    	function refresh() {
+		        	var chart = $("#chart").data("kendoChart"),
+		            	type = $("input[name=seriesType]:checked").val(),
+		            	stack = $("#stack").prop("checked");
+
+
+		        	for (var i = 0, length = series.length; i < length; i++) 
+		        	{
+		            	series[i].stack = stack;
+		            	series[i].type = type;
+		        	};
+
+		        	chart.setOptions({
+		            	series: series
+		        	});
+		    	}
+			</script>
+		</div>
+	</body>
+</html>
