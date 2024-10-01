@@ -1,0 +1,55 @@
+<!-- ---------------------------------------------------------------------------- -->
+<!-- Ejemplo de lectura (y procesamiento) de un archivo JSON colocado en una URL. -->
+<!-- ---------------------------------------------------------------------------- -->
+<!DOCTYPE html>
+   <html lang="en">
+
+   <head>
+      <meta charset="utf-8">
+      <title>Prueba de lectura JSON - Paises del mundo</title>
+
+      <!-- Utilizamos JQUERY. -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   </head>
+
+   <body>
+      <!-- Area en la pagina HTML para mostrar la lista de paises (de lo que trata el ejemplo) -->
+      <textarea id="countries" style="width:1000px;height:1000px"></textarea>
+
+    	<script>
+    		// Lee el JSON en la siguiente URL. El parametro de la callback function sera de tipo object.
+    		$.getJSON('https://raw.githubusercontent.com/samayo/country-json/master/src/country-by-name.json', function(data) {
+        /*
+        		var text = `Date: ${data.date}<br>
+                    		Time: ${data.time}<br>
+                    		Unix time: ${data.milliseconds_since_epoch}`
+         */
+                console.log("data es: " + typeof data);
+
+                text = "";     // Variable que contendra la lista de paises.
+
+                //
+                // Itera a traves del objeto data.
+                //
+                for(var i = 0; i < data.length; i++) {
+                	var pais = data[i];
+
+                	console.log("data[i] es: " + typeof data[i] + " | pais es: " + typeof pais);
+
+                	for(property in pais) {
+                		// text += property + ": " + pais[property] + "\n";
+                		text += pais[property] + ",";
+                	}
+				}
+
+				$("#countries").val(text);
+
+				var arreglo_paises = [];
+
+				arreglo_paises = text.split(",");
+
+				console.log(arreglo_paises);
+    		});
+    	</script>
+   </body>
+</html>
