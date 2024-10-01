@@ -1,0 +1,228 @@
+<DOCYTPE html>
+<html lang=es>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<script src="js/bootstrap.js"></script>
+		<style>
+			
+			.container{
+				max-width:510px;
+				}
+				
+			input[type="button"]{
+				cursor:pointer;
+				}
+			
+			footer{
+				display:flex;
+				flex-direction:column;
+				justify-content:center;
+				align-items:center;
+				background:#555;
+				color:#fff;
+				height:120px;
+				text-align:center;
+				margin-top:50px;
+				line-height:10px;
+				padding:5px;
+				}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1 class="display-4">Buenos dias Bienvenidos a la calculadora de Roger Armando Chan Ac</h1>
+		</div>
+		<br>
+		<div class="container">
+			<div class="form-group">
+				<input id="entrada" type="text" class="form-control" readonly>
+				<br>
+				<div class="row">
+					<div class="col-3">
+						<input type="button" value="X^2" class="form-control btn-info" onclick="otras_operaciones(this)">
+					</div>
+					<div class="col-3">
+						<input type="button" value="1/X" class="form-control btn-info" onclick="otras_operaciones(this)">
+					</div>
+					<div class="col-3">
+						<input type="button" value="sqrt" class="form-control btn-info" onclick="otras_operaciones(this)">
+					</div>
+					<div class="col-3">
+						<input type="button" value="X^Y" class="form-control btn-info" onclick="obtener_operando(this)">
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-3">
+						<input type="button" value="C" class="form-control btn-warning" onclick="limpiar()">
+					</div>
+					<div class="col-3">
+						<input type="button" value="M-" class="form-control btn-warning">
+					</div>
+					<div class="col-3">
+						<input type="button" value="M+" class="form-control btn-warning">
+					</div>
+					<div class="col-3">
+						<input type="button" value="/" class="form-control btn-info" onclick="obtener_operando(this)">
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-3">
+						<input type="button" value="7" class="form-control btn-warning" onclick="add_to_screen(this)">
+					</div>
+					<div class="col-3">
+						<input type="button" value="8" class="form-control btn-warning" onclick="add_to_screen(this)">
+					</div>
+					<div class="col-3">
+						<input type="button" value="9" class="form-control btn-warning" onclick="add_to_screen(this)">
+					</div>
+					<div class="col-3">
+						<input type="button" value="*" class="form-control btn-info" onclick="obtener_operando(this)">
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-3">
+						<input type="button" value="4" class="form-control btn-warning" onclick="add_to_screen(this)">
+					</div>
+					<div class="col-3">
+						<input type="button" value="5" class="form-control btn-warning" onclick="add_to_screen(this)">
+					</div>
+					<div class="col-3">
+						<input type="button" value="6" class="form-control btn-warning" onclick="add_to_screen(this)">
+					</div>
+					<div class="col-3">
+						<input type="button" value="-" class="form-control btn-info" onclick="obtener_operando(this)">
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-3">
+						<input type="button" value="1" class="form-control btn-warning" onclick="add_to_screen(this)">
+					</div>
+					<div class="col-3">
+						<input type="button" value="2" class="form-control btn-warning" onclick="add_to_screen(this)">
+					</div>
+					<div class="col-3">
+						<input type="button" value="3" class="form-control btn-warning" onclick="add_to_screen(this)">
+					</div>
+					<div class="col-3">
+						<input type="button" value="+" class="form-control btn-info" onclick="obtener_operando(this)">
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="col-3">
+						<input type="button" value="0" class="form-control btn-warning" onclick="add_to_screen(this)">
+					</div>
+					<div class="col-3">
+						<input type="button" value="." class="form-control btn-warning" onClick="add_to_screen(this)">
+					</div>
+					<div class="col-3">
+						<input type="button" value="entero" class="form-control btn-info" onclick="otras_operaciones(this)">
+					</div>	
+					<div class="col-3">
+						<input type="button" value="=" class="form-control btn-info" onclick="operacion()">
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+				
+				var num = 0;
+				var operando = '';
+				
+				function obtener_operando(valor){
+					num = parseInt(get_input().value);
+					operando = valor.value;
+					get_input().value = "";
+					}
+					
+				function operacion(){
+					switch(operando){
+						case "/":
+							get_input().value = num / parseInt(get_input().value);
+						break;
+						
+						case "-":
+							get_input().value = num - parseInt(get_input().value);
+						break;
+						
+						case "+":
+							get_input().value = num + parseInt(get_input().value);
+						break;
+						
+						case "*":
+							get_input().value = num * parseInt(get_input().value);
+						break;
+						
+						case "X^Y":
+							get_input().value = potencia(num, parseInt(get_input().value));
+						break;
+						}
+					}
+				
+				function potencia(num, pot){
+					var resultado = num
+					for(i=1;i<pot;i++){
+						resultado = resultado * pot
+						}
+					return resultado;
+					}
+				
+				function otras_operaciones(operando){
+					switch(operando.value){
+						case "X^2":
+							get_input().value = get_input().value * get_input().value;
+						break;
+						
+						case "1/X":
+							get_input().value = 1 / get_input().value
+						break;
+						
+						case "sqrt":
+							get_input().value = Math.sqrt(parseInt(get_input().value))
+						break;
+						
+						case "entero":
+							if (parseInt(get_input().value)>0){
+								get_input().value = Math.floor(parseInt(get_input().value))
+							}
+							else{
+								get_input().value = Math.ceil(parseInt(get_input().value))
+								}	
+						break;
+						}
+					}
+					
+				function limpiar(){
+					var num = 0;
+					var operando = "";
+					get_input().value = "";
+					get_input().focus();
+					}
+				
+				function get_input(){
+					var entrada = document.getElementById('entrada');
+					return entrada;
+					}
+				
+				function get_value(valor){
+					var val = valor.value;
+					return val;				
+					}
+				
+				function add_to_screen(value){
+					get_input().value += get_value(value); 
+					}
+		</script>
+		<footer>
+			<p class="text-center">Todos los derechos reservados &copy 2018</p>
+			<p>Contacto</p>
+			<p>armandoroger007@gmail.com</p>
+		</footer>
+	</body>
+</html>
